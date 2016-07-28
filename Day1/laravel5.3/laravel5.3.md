@@ -1,4 +1,4 @@
-### Laravel 5.3
+# Laravel 5.3
 Probably needs another week or 2 for documentation then it will be released.
 
 ## State of Laravel
@@ -22,24 +22,24 @@ Webpack over browserify -- Said webpack is just what you do now
 Setups Vue for you
 
 ## General Features
-# Controllers
+### Controllers
     No longer need to extend Controller for controllers
     If you have a single action controller you can just name the function __invoke()
         At that point in the route you don't need the action
 
-# Console
+### Console
     Inside Kernel.php you can write console commands as a closure
 
     You can define your console commands as a route file under the Routes folder then require the route file in Kernel.php
 
-# Queue Workers
+### Queue Workers
     The child processes are now forked from the master queue worker so you can set timeouts on the process
         Handy if you have a worker that's running but not doing anything / stuck in a loop
         Most likely event is an HTTP process to an external source that's hanging
     You can also set a max number of attempts
 
 ## Advanced Stuff
-# Scout
+### Scout
     It is an optional package
     It is a driver based full text search on Eloquent
 
@@ -59,7 +59,7 @@ Setups Vue for you
 
     The search drivers are going to be a lot better than a LIKE clause
 
-# Mailable Objects
+### Mailable Objects
     You can create mail classes that sends mail (artisan make:mail {mailClassName} ??)
         The class basically sets the view
         Everything for the mail is done in the build action
@@ -69,7 +69,7 @@ Setups Vue for you
     You can queue the sending of the mail
     The default driver comes with a responsive template out of the box
 
-# User Notifications
+### User Notifications
     Notification directory is only there if you "make" a new notification
     function via()
         allows you to select how you send the Notifiable object
@@ -93,7 +93,7 @@ Setups Vue for you
                       routeNotificationForNexmo (sms)
     All the notifications can be Queued
 
-# Multiple Auth Drivers (in 5.2 but updated in 5.3)
+### Multiple Auth Drivers (in 5.2 but updated in 5.3)
     You can have seperate auth for web or api
 
     Laravel Passport (optional package)
