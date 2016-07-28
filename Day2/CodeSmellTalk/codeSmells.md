@@ -1,4 +1,6 @@
 # Code Smells Talk
+Sandi Metz
+
 ## Classic Smells
 Alternative Classes w/ Different Interfaces
 Comments
