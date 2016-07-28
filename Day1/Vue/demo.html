@@ -1,0 +1,78 @@
+<html>
+
+
+<script src="bower_components/vue/dist/vue.js"></script>
+<!-- import script -->
+<div id="app">
+    <h2>All Todos</h2>
+    <ul>
+        <!-- <li v-for="todo in todos"> -->
+            <!-- {{ todo.text}} ({{ todo.done ? 'done' : 'nah'}}) -->
+            <!-- @ signifies and event -->
+            <!-- <button @click="toggle(todo)">toggle</button> -->
+        <!-- </li> -->
+        <todo v-for="todo in todos" :todo="todo" @click="toggle(todo)">
+        </todo>
+
+
+    </ul>
+    <h2>Not Done Todos</h2>
+    <ul>
+        <!-- <li v-for="todo in notDoneTodos">
+            {{ todo.text}}
+        </li> -->
+        <todo v-for="todo in notDoneTodos" :todo="todo" @click="toggle(todo)">
+        </todo>
+    </ul>
+    <h2>Done Todos</h2>
+    <ul>
+        <li></li>
+    </ul>
+    <!-- . adds a modifier -->
+    <!-- .prevent === event.preventDefault() -->
+    <form action="" @submit.prevent="addTodo">
+        <!-- Bind to model -->
+        <input type="text" v-model="newTodo">
+        <button type="submit">add todo</button>
+    </form>
+</div>
+
+<script>
+    Vue.component('todo', {
+        props: ['todo'],
+        template: `
+            <li>
+                {{ todo.text}} ({{ todo.done ? 'done' : 'nah' }})
+                <button @click="$emit(toggle(todo))">toggle</button>
+            </li>
+        `
+    });
+    // using ES6
+    var vm = new Vue({
+        data: {
+            newTodo: '',
+            todos: [
+                { text: 'Hello Laracon', done: true},
+                { text: 'Deliver the talk', done: false}
+            ]
+        },
+        // Computed properties are a function
+        computed: {
+            notDoneTodos () {
+                return this.todos.filter(todo => !todo.done);
+            }
+        },
+        methods: {
+            toggle (todo) {
+                todo.done = !todo.done
+            },
+            addTodo (newTodo) {
+                this.todos.push({
+                    text: newTodo,
+                    done: false
+                });
+            }
+        }
+    }).$mount('#app');
+</script>
+</html>
