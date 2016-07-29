@@ -5,6 +5,7 @@ Jason McCreary - @gonedark
 ### WYS (What YAGNI solves)
 
 Over Engineering
+
     Causes
         WLWWD
             We love what we do
@@ -14,10 +15,12 @@ Over Engineering
         Implement things when we actually need them. Never when you just foresee that you need them.
 
 MVP
+
     Minimal Viable Product
     Do the simplest thing that could possibly work. (Then iterate) -- From extreme programming book
 
 KISS
+
     Keep it simple stupid
 
 ## Part 2
